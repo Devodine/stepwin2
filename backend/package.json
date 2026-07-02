@@ -1,0 +1,20 @@
+{
+  "name": "stepwin-backend",
+  "version": "1.0.0",
+  "description": "StepWin API — step-count challenges with a real entry fee and prize pool",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js",
+    "migrate": "node migrate.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2",
+    "cors": "^2.8.5",
+    "pg": "^8.12.0",
+    "bcrypt": "^5.1.1",
+    "jsonwebtoken": "^9.0.2",
+    "razorpay": "^2.9.4",
+    "dotenv": "^16.4.5"
+  }
+}

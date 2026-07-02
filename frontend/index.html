@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>StepWin — Walk. Compete. Win.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css" />
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="logo">Step<span>Win</span></div>
+  <nav id="auth-area" class="auth-area"></nav>
+</header>
+
+<section class="hero">
+  <div class="hero-contour" aria-hidden="true"></div>
+  <div class="hero-inner">
+    <p class="eyebrow">Entry fee ₹59 · winner takes the pool</p>
+    <h1>Every step<br>counts for something.</h1>
+    <div class="odometer" id="odometer" aria-label="Total steps walked by all challengers">
+      <span data-d>0</span><span data-d>0</span><span data-d>0</span><span data-d>0</span><span data-d>0</span><span data-d>0</span>
+    </div>
+    <p class="odometer-label">steps logged across all active challenges</p>
+  </div>
+</section>
+
+<main>
+  <section class="panel" id="auth-panel">
+    <div class="tabs">
+      <button class="tab active" data-tab="login">Log in</button>
+      <button class="tab" data-tab="signup">Sign up</button>
+    </div>
+
+    <form id="login-form" class="auth-form">
+      <input type="email" name="email" placeholder="Email" required />
+      <input type="password" name="password" placeholder="Password" required />
+      <button type="submit">Log in</button>
+      <p class="form-msg" id="login-msg"></p>
+    </form>
+
+    <form id="signup-form" class="auth-form hidden">
+      <input type="text" name="name" placeholder="Name" required />
+      <input type="email" name="email" placeholder="Email" required />
+      <input type="password" name="password" placeholder="Password (min 6 chars)" required minlength="6" />
+      <button type="submit">Create account</button>
+      <p class="form-msg" id="signup-msg"></p>
+    </form>
+  </section>
+
+  <section class="panel" id="challenges-panel">
+    <h2 class="section-title"><span class="marker">01</span> Active challenges</h2>
+    <div id="challenge-list" class="challenge-list"></div>
+  </section>
+
+  <section class="panel hidden" id="detail-panel">
+    <button class="back-link" id="back-to-list">&larr; All challenges</button>
+    <h2 class="section-title" id="detail-title"></h2>
+    <p id="detail-desc" class="muted"></p>
+    <div class="detail-grid">
+      <div class="stat-card">
+        <span class="stat-label">Entry fee</span>
+        <span class="stat-value">₹<span id="detail-fee"></span></span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-label">Prize pool</span>
+        <span class="stat-value">₹<span id="detail-pool"></span></span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-label">Challengers</span>
+        <span class="stat-value" id="detail-count"></span>
+      </div>
+    </div>
+
+    <div id="join-area"></div>
+
+    <div id="steps-area" class="hidden">
+      <h3 class="mini-title">Log today's steps</h3>
+      <form id="steps-form" class="steps-form">
+        <input type="date" name="date" required />
+        <input type="number" name="count" min="0" placeholder="Step count" required />
+        <button type="submit">Log steps</button>
+      </form>
+      <p class="form-msg" id="steps-msg"></p>
+    </div>
+
+    <h3 class="mini-title">Leaderboard</h3>
+    <table class="leaderboard" id="leaderboard-table">
+      <thead><tr><th>Rank</th><th>Name</th><th>Steps</th></tr></thead>
+      <tbody></tbody>
+    </table>
+  </section>
+</main>
+
+<footer>
+  <p>StepWin starter — payments are stubbed for demo purposes. Wire up a licensed gateway before handling real money.</p>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>
