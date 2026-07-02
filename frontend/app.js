@@ -1,4 +1,4 @@
-const API_BASE = 'http://localhost:3000/api';
+const API_BASE = 'https://stepwin-api.onrender.com/api';
 
 let token = null;
 let currentUser = null;
